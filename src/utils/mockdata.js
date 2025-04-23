@@ -1,0 +1,1 @@
+export const projectURL = 'http://localhost:3000/';
