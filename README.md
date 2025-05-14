@@ -20,4 +20,4 @@
 ![image](https://github.com/user-attachments/assets/f1be0b19-c23a-4e34-98fb-e441d1fe6d84)
 
 [D] Dashboard Page
-![image](https://github.com/user-attachments/assets/02659107-f551-4b4f-a5f5-7ebf86c0aa1d)
+![image](https://github.com/user-attachments/assets/3290459d-a278-453f-9dab-c5dc8afea1dd)
