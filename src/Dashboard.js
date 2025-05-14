@@ -43,7 +43,7 @@ const Dashboard = () => {
               <div className="flex h-16 items-center justify-between">
                 <div className="flex items-center">
                   <div className="shrink-0">
-                    <img className="max-w-16" src="https://cdn.prod.website-files.com/6099f7f90695175cbbb1b376/609a23821585d2e81eaa30cb_sociologo.png" alt="Your Company" />
+                    <img className="max-w-20" src="socio3.3.png" alt="Your Company" />
                   </div>
 
                     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">

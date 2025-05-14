@@ -41,7 +41,7 @@ const Register = () => {
         <div>
           <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <img className="max-w-30" src="https://cdn.prod.website-files.com/6099f7f90695175cbbb1b376/609a23821585d2e81eaa30cb_sociologo.png" alt="Your Company" />
+            <img className="max-w-30" src="socio3.3.png" alt="Your Company" />
               <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign up to your account</h2>
             </div>
     
