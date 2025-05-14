@@ -13,11 +13,12 @@
 ![image](https://github.com/user-attachments/assets/d3499bff-1459-449d-a624-0ce0b63ede5f)
 
 [B] Login Page
-![Screenshot 2025-04-22 112321](https://github.com/user-attachments/assets/6be1bfea-2d95-4a9e-8087-068dbf4a3321)
+![image](https://github.com/user-attachments/assets/58d428ab-1221-4c9e-b6aa-67ff323d18ab)
 
 
 [C] Register Page
-![image](https://github.com/user-attachments/assets/f1be0b19-c23a-4e34-98fb-e441d1fe6d84)
+![image](https://github.com/user-attachments/assets/1e865e07-a269-42ba-9b21-43d28e62e040)
+
 
 [D] Dashboard Page
 ![image](https://github.com/user-attachments/assets/3290459d-a278-453f-9dab-c5dc8afea1dd)
