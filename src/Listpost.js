@@ -60,7 +60,7 @@ const Listpost = () => {
                                         <span>{data?.likes}</span>
                                     </button>
 
-                                    <ListComment postId={data?.id}/>    
+                                    <ListComment postId={data?._id}/>    
                                 </div>
                             </div>
                         </div>

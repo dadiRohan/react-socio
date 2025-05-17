@@ -1,50 +1,53 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { projectURL } from "./utils/mockdata";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState();
+  const [userEmail,setUserEmail] = useState();
   const [password, setPassword] = useState();
-
-
-  // based on API for users
-  const [userData,setUserData] = useState([]);
-  const fetchUsers = async () => {
-    
-    const loginPath = projectURL + "profile";
-
-    const userList = await fetch(loginPath,{
-      headers:{"cors":"no-cors"}
-    });
-    const userJson = await userList.json();
-    setUserData(userJson);
-  }
-  useEffect(()=>{
-    fetchUsers();
-  },[]);
-  const users = userData;
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if((username === undefined) || (password === undefined)){
+    if((userEmail === undefined)  || (password === undefined)){
       alert("Kindly enter all Fields for Login !");
       return ;
     }
+
+    const dataInput = {
+      email : userEmail,
+      password : password
+    };
     
-    const account = users.find((user) => user.username === username);
-    console.log(account);
-    if (account && account.password === password) {
-      localStorage.setItem("authenticated", true);
-      localStorage.setItem("loggedUserName",username);
+    const loginpath = projectURL + "profiles/login";
+    
+    try {
 
-      sessionStorage.setItem("loggedUserName",username); //Session start
+      const fetchdata = async () => {
+        const response = await fetch(loginpath, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(dataInput),
+        });
+        if (response.ok) {
+          const data = await response.json();
+          console.log("res status " + response.status);
+          const username = data?.username;
 
-      console.log('Authentication Done');
-      
-      navigate("/dashboard");
-    }else{
+          localStorage.setItem("authenticated", true);
+          localStorage.setItem("loggedUserName",username);
+          sessionStorage.setItem("loggedUserName",username);
+          console.log('Authentication Done');
+          navigate("/dashboard");
+        } else {
+          alert('Login Failed !');
+        }
+      }
+      fetchdata();  
+    } catch (error) {
       console.log('Authentication Fail');
       alert('You have entered wrong username or password !');
     }
@@ -54,7 +57,7 @@ const Login = () => {
     <div>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <img className="max-w-30" src="socio3.3.png" alt="Your Company" />
+        <img className="max-w-30" src="socio.png" alt="Your Company" />
           <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Sign in to your account</h2>
         </div>
 
@@ -62,8 +65,8 @@ const Login = () => {
           <form className="space-y-6" >
             <div>
               <div className="mt-2">
-                <input onChange={(e) => {setUsername(e.target.value)}}  placeholder="Enter Username"
-                id="username" name="username" type="text" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-center focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2" />
+                <input onChange={(e) => {setUserEmail(e.target.value)}}  placeholder="Enter Email"
+                id="email" name="email" type="text" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-center focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6 p-2" />
               </div>
             </div>
 

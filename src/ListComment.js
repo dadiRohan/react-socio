@@ -8,7 +8,7 @@ export const ListComment = ({postId}) => {
     const [commentAdded, setCommentAdded] = useState(false);
 
     const fetchComments = useCallback(async () => {
-        const fetchCommentPath = projectURL + "comments?postId="+postId;
+        const fetchCommentPath = projectURL + "comments/"+postId;
         const commentList = await fetch(fetchCommentPath,{
             headers:{"cors":"no-cors"}
         });
