@@ -32,7 +32,7 @@ export const ListComment = ({postId}) => {
                             <div className="flex items-center">
                                 <img
                                 alt="Tania Andrew"
-                                src={data?.imgPath}
+                                src="https://cdn-icons-png.flaticon.com/512/11461/11461171.png"
                                 className="relative inline-block h-8 w-8 rounded-full"
                                 />
                                 <div className="flex flex-col ml-3 text-sm">
