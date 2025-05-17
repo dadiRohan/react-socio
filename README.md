@@ -7,4 +7,4 @@
 3. For run json-server command : **npx json-server db.json** 
 4. For run React command : **npm start**
 5. For login username: Rohan , password: test
-6. For Access Online path : react-socio.vercel.app
+6. For Access Online path : **https://react-socio.vercel.app/**
