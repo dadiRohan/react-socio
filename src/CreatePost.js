@@ -14,17 +14,15 @@ const CreatePost = ({onPostCreated}) => {
     const onSubmit = (e) => {
         e.preventDefault();
         
+        const userId = localStorage.getItem("loggedUserId");
+
         const dataInput = {
-            imgPath : 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+            imgPath : 'https://cdn-icons-png.flaticon.com/512/11461/11461171.png',
             post:newPost,
-            likes:0,
-            created_at: '',
-            created_date: FullDate,
-            created_by: userName,
-            comments:0
+            created_by: userId
         };
 
-        const postPath = projectURL + "posts";
+        const postPath = projectURL + "posts/create";
 
         try {
             fetch(postPath,{

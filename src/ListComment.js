@@ -13,7 +13,7 @@ export const ListComment = ({postId}) => {
             headers:{"cors":"no-cors"}
         });
         const commentJson = await commentList.json();
-        setUserComment(commentJson.reverse());
+        setUserComment(commentJson.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)));
     }, [postId]);
 
     useEffect(() => {

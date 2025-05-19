@@ -14,16 +14,18 @@ export const CreateComment = ({postId,onCommentCreated}) => {
     const onCommentSubmit = (e) => {
         e.preventDefault();
 
+        const userId = localStorage.getItem("loggedUserId");
+
         const dataInput = {
             postId: postId,
             comment:newComment, 
-            created_at: '',
-            created_date: FullDate,
-            created_by: userName,
-            imgPath : 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+            // created_at: '',
+            // created_date: FullDate,
+            created_by: userId,
+            // imgPath : 'https://cdn-icons-png.flaticon.com/512/11461/11461171.png',
         };
 
-        const commentPath = projectURL + "comments";
+        const commentPath = projectURL + "comments/create";
 
         try {
             fetch(commentPath,{

@@ -14,7 +14,7 @@ const Listpost = () => {
             headers:{"cors":"no-cors"}
         });
         const postJson = await postList.json();
-        setUserPost(postJson.reverse());
+        setUserPost(postJson.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)));
     }
 
     useEffect(() => {

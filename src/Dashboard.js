@@ -28,8 +28,10 @@ const Dashboard = () => {
     // console.log('Logout Clicked');
     localStorage.removeItem("authenticated");
     localStorage.removeItem("loggedUserName");
+    localStorage.removeItem("loggedUserId");
 
     sessionStorage.removeItem("loggedUserName");  //Session end
+    sessionStorage.removeItem("loggedUserId");  //Session end
 
     navigate("/");
   };

@@ -37,9 +37,13 @@ const Login = () => {
           console.log("res status " + response.status);
           const username = data?.username;
 
+          const userId = data?._id;
+
           localStorage.setItem("authenticated", true);
           localStorage.setItem("loggedUserName",username);
           sessionStorage.setItem("loggedUserName",username);
+          localStorage.setItem("loggedUserId",userId);
+          sessionStorage.setItem("loggedUserId",userId);  
           console.log('Authentication Done');
           navigate("/dashboard");
         } else {
