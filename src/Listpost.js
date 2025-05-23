@@ -17,6 +17,27 @@ const Listpost = () => {
         setUserPost(postJson.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)));
     }
 
+    // function timeConversion(millisec) {
+
+    //     var seconds = (millisec / 1000).toFixed(1);
+
+    //     var minutes = (millisec / (1000 * 60)).toFixed(1);
+
+    //     var hours = (millisec / (1000 * 60 * 60)).toFixed(1);
+
+    //     var days = (millisec / (1000 * 60 * 60 * 24)).toFixed(1);
+
+    //     if (seconds < 60) {
+    //         return seconds + " Sec";
+    //     } else if (minutes < 60) {
+    //         return minutes + " Min";
+    //     } else if (hours < 24) {
+    //         return hours + " Hrs";
+    //     } else {
+    //         return days + " Days"
+    //     }
+    // }
+
     useEffect(() => {
         fetchPosts();
     },[postAdded])
@@ -39,8 +60,8 @@ const Listpost = () => {
                                     className="relative inline-block h-8 w-8 rounded-full"
                                     />
                                     <div className="flex flex-col ml-3 text-sm">
-                                    <span className="text-slate-800 font-semibold">{data?.created_by}</span>
-                                    <span className="text-slate-600">{data?.created_date}</span>
+                                    <span className="text-slate-800 font-semibold">{data?.created_by?.username}</span>
+                                    <span className="text-slate-600">{data?.created_at}</span>
                                     </div>
                                 </div>
                             </div>
