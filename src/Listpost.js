@@ -17,26 +17,30 @@ const Listpost = () => {
         setUserPost(postJson.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)));
     }
 
-    // function timeConversion(millisec) {
+    function timeAgo(dateString) {
+        const now = new Date();
+        const date = new Date(dateString);
+        const seconds = Math.floor((now - date) / 1000);
 
-    //     var seconds = (millisec / 1000).toFixed(1);
+        const intervals = {
+            year: 31536000,
+            month: 2592000,
+            week: 604800,
+            day: 86400,
+            hour: 3600,
+            minute: 60,
+            second: 1,
+        };
 
-    //     var minutes = (millisec / (1000 * 60)).toFixed(1);
+        for (const [unit, value] of Object.entries(intervals)) {
+            const count = Math.floor(seconds / value);
+            if (count >= 1) {
+            return `${count} ${unit}${count > 1 ? 's' : ''} ago`;
+            }
+        }
 
-    //     var hours = (millisec / (1000 * 60 * 60)).toFixed(1);
-
-    //     var days = (millisec / (1000 * 60 * 60 * 24)).toFixed(1);
-
-    //     if (seconds < 60) {
-    //         return seconds + " Sec";
-    //     } else if (minutes < 60) {
-    //         return minutes + " Min";
-    //     } else if (hours < 24) {
-    //         return hours + " Hrs";
-    //     } else {
-    //         return days + " Days"
-    //     }
-    // }
+        return "just now";
+    }
 
     useEffect(() => {
         fetchPosts();
@@ -61,7 +65,7 @@ const Listpost = () => {
                                     />
                                     <div className="flex flex-col ml-3 text-sm">
                                     <span className="text-slate-800 font-semibold">{data?.created_by?.username}</span>
-                                    <span className="text-slate-600">{data?.created_at}</span>
+                                    <span className="text-slate-600">{timeAgo(data?.created_at)}</span>
                                     </div>
                                 </div>
                             </div>

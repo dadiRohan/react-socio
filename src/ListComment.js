@@ -16,6 +16,31 @@ export const ListComment = ({postId}) => {
         setUserComment(commentJson.sort((a, b) => new Date(b.created_at) - new Date(a.created_at)));
     }, [postId]);
 
+    function timeAgo(dateString) {
+        const now = new Date();
+        const date = new Date(dateString);
+        const seconds = Math.floor((now - date) / 1000);
+
+        const intervals = {
+            year: 31536000,
+            month: 2592000,
+            week: 604800,
+            day: 86400,
+            hour: 3600,
+            minute: 60,
+            second: 1,
+        };
+
+        for (const [unit, value] of Object.entries(intervals)) {
+            const count = Math.floor(seconds / value);
+            if (count >= 1) {
+            return `${count} ${unit}${count > 1 ? 's' : ''} ago`;
+            }
+        }
+
+        return "just now";
+    }    
+
     useEffect(() => {
         fetchComments();
     },[fetchComments, commentAdded]);
@@ -37,7 +62,7 @@ export const ListComment = ({postId}) => {
                                 />
                                 <div className="flex flex-col ml-3 text-sm">
                                 <span className="text-slate-800 font-semibold">{data?.created_by?.username}</span>
-                                <span className="text-slate-600">{data?.created_at}</span>
+                                <span className="text-slate-600">{timeAgo(data?.created_at)}</span>
                                 </div>
                             </div>
                         </div>
